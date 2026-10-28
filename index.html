@@ -1,0 +1,234 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body>
+<title>Кирилл осуждает</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: case file — Kirill at the desk on the left, protocol form and registry on the right; stacks on phones */
+:root{
+  --paper:#eef1f4; --sheet:#ffffff; --ink:#1c2433; --muted:#5b6578; --line:#d5dbe3;
+  --stamp:#c8322b; --stamp-bg:#fbe9e7; --focus:#2f5bd3;
+  --display:"Russo One","Arial Black",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#11151d; --sheet:#1a202b; --ink:#e6e9ef; --muted:#9aa3b5; --line:#2c3443;
+  --stamp:#ff6b5e; --stamp-bg:#3a1c1b; --focus:#8aa8ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11151d; --sheet:#1a202b; --ink:#e6e9ef; --muted:#9aa3b5; --line:#2c3443;
+  --stamp:#ff6b5e; --stamp-bg:#3a1c1b; --focus:#8aa8ff; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 48px}
+.wrap{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:820px){.wrap{grid-template-columns:minmax(0,1fr)}}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,38px);line-height:1.1;margin:0 0 4px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 18px}
+.desk{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+@media (max-width:820px){.desk{position:static}}
+.bubble{background:var(--sheet);border:1.5px solid var(--ink);border-radius:14px;padding:12px 16px;font-size:18px;font-weight:600;min-height:58px;position:relative}
+.bubble:after{content:"";position:absolute;left:46%;bottom:-9px;width:16px;height:16px;background:var(--sheet);border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(45deg)}
+#kir{display:block;width:100%;max-width:340px;margin:6px auto 0}
+.shake{animation:sh .3s}
+@keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.tally{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-top:1px dashed var(--line);padding-top:12px;margin-top:4px}
+.tally b{font-family:var(--display);font-weight:400;font-size:34px;color:var(--stamp);font-variant-numeric:tabular-nums}
+.tally span{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:20px}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+form{display:grid;gap:12px;margin-top:10px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:12px}
+@media (max-width:520px){.row{grid-template-columns:minmax(0,1fr)}}
+.field{display:grid;gap:4px;min-width:0}
+input{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:9px 11px;width:100%}
+input:focus-visible,button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.err{color:var(--stamp);font-size:13px;min-height:1.2em}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+button{font:inherit;cursor:pointer;border-radius:4px;padding:9px 16px;border:1.5px solid var(--ink);background:transparent;color:var(--ink)}
+button.go{font-family:var(--display);background:var(--stamp);border-color:var(--stamp);color:#fff;letter-spacing:.03em}
+button.go:hover{filter:brightness(1.08)}
+button.ghost:hover{background:var(--paper)}
+.registry{margin-top:20px}
+.reg-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.status{font-size:13px;color:var(--muted)}
+ol{list-style:none;margin:0;padding:0;display:grid;gap:0}
+li{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 4px;border-top:1px solid var(--line)}
+li:first-child{border-top:none}
+.no{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.who{font-weight:600;overflow-wrap:anywhere}
+.sin{color:var(--muted);font-size:14px;overflow-wrap:anywhere}
+.right{display:flex;align-items:center;gap:10px}
+.stamp{font-family:var(--display);font-size:11px;letter-spacing:.08em;color:var(--stamp);border:1.5px solid var(--stamp);border-radius:3px;padding:2px 6px;transform:rotate(-4deg);background:var(--stamp-bg);white-space:nowrap}
+.when{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.del{border:none;padding:4px 6px;color:var(--muted);font-size:13px}
+.del:hover{color:var(--stamp)}
+li.fresh{animation:in .5s ease-out}
+@keyframes in{from{background:var(--stamp-bg)}to{background:transparent}}
+.empty{padding:28px 8px;text-align:center;color:var(--muted)}
+.empty strong{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
+@media (max-width:520px){li{grid-template-columns:minmax(0,1fr) auto}.no{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){.shake,li.fresh{animation:none}}
+</style>
+
+<div class="wrap">
+  <aside class="desk">
+    <h1>Кирилл осуждает</h1>
+    <p class="sub">Каждый осуждённый вайбкодер заносится в реестр. Навсегда.</p>
+    <div class="bubble" id="bubble" aria-live="polite"></div>
+    <svg id="kir" viewBox="160 30 360 330" role="img" aria-label="Кирилл в худи и очках, хмурится">
+      <rect x="200" y="250" width="280" height="140" rx="60" fill="#3a3f4b"/>
+      <path d="M290 250 L340 300 L390 250" fill="none" stroke="#2a2e37" stroke-width="6"/>
+      <rect x="315" y="205" width="50" height="50" fill="#e9b997"/>
+      <ellipse cx="340" cy="150" rx="88" ry="98" fill="#f2c6a5"/>
+      <ellipse cx="252" cy="160" rx="14" ry="22" fill="#e9b997"/>
+      <ellipse cx="428" cy="160" rx="14" ry="22" fill="#e9b997"/>
+      <path d="M252 130 Q250 50 340 48 Q432 50 428 130 Q420 92 380 90 Q340 70 300 92 Q262 95 252 130Z" fill="#5a3b26"/>
+      <path id="browL" d="M278 118 L322 130" stroke="#3a2516" stroke-width="7" stroke-linecap="round"/>
+      <path id="browR" d="M402 118 L358 130" stroke="#3a2516" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="300" cy="152" r="24" fill="#ffffff" fill-opacity=".25" stroke="#222" stroke-width="4"/>
+      <circle cx="380" cy="152" r="24" fill="#ffffff" fill-opacity=".25" stroke="#222" stroke-width="4"/>
+      <line x1="324" y1="152" x2="356" y2="152" stroke="#222" stroke-width="4"/>
+      <g id="eyes"><circle cx="302" cy="156" r="5" fill="#222"/><circle cx="378" cy="156" r="5" fill="#222"/></g>
+      <path d="M336 165 Q332 185 342 188" fill="none" stroke="#c99677" stroke-width="3" stroke-linecap="round"/>
+      <path id="mouth" d="M312 214 Q340 200 368 214" fill="none" stroke="#7a3b2e" stroke-width="5" stroke-linecap="round"/>
+      <rect x="225" y="300" width="230" height="44" rx="22" fill="#4a505e"/>
+      <path d="M250 322 L430 322" stroke="#3a3f4b" stroke-width="3"/>
+    </svg>
+    <div class="tally"><span>Осуждено всего</span><b id="total">0</b></div>
+  </aside>
+
+  <main>
+    <section class="sheet">
+      <div class="label">Протокол осуждения</div>
+      <form id="form" novalidate>
+        <div class="row">
+          <div class="field">
+            <label class="label" for="name">Кто провинился</label>
+            <input id="name" maxlength="60" autocomplete="off" placeholder="Вася из соседнего отдела">
+          </div>
+          <div class="field">
+            <label class="label" for="sin">Статья</label>
+            <input id="sin" list="sins" maxlength="120" autocomplete="off" placeholder="Задеплоил прод промптом">
+            <datalist id="sins">
+              <option value="Задеплоил прод промптом «сделай красиво»">
+              <option value="Не читал дифф">
+              <option value="Сказал «оно само написало»">
+              <option value="100500 строк, ноль тестов">
+              <option value="node_modules на 4 гига ради todo-листа">
+              <option value="Ответил «you're absolutely right»">
+              <option value="Навайбкодил Кирилла">
+            </datalist>
+          </div>
+        </div>
+        <div class="err" id="err"></div>
+        <div class="actions">
+          <button class="go" type="submit" id="go">Осудить</button>
+          <button class="ghost" type="button" id="poke">Ткнуть Кирилла</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="registry sheet">
+      <div class="reg-head">
+        <div class="label">Реестр осуждённых</div>
+        <div class="status" id="status">Открываю реестр…</div>
+      </div>
+      <ol id="list"></ol>
+      <div class="empty" id="empty"><strong>Реестр пока пуст</strong>Впиши первого вайбкодера в протокол, Кирилл ждёт.</div>
+    </section>
+  </main>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const bubble=$('bubble'),mouth=$('mouth'),kir=$('kir');
+const SHUT="M312 214 Q340 200 368 214",O1="M314 208 Q340 232 366 208",O2="M318 210 Q340 222 362 210";
+let talk=null;
+function say(s){
+  clearInterval(talk);bubble.textContent="";let i=0;
+  talk=setInterval(()=>{bubble.textContent=s.slice(0,++i);mouth.setAttribute('d',s[i-1]===" "?SHUT:(i%2?O1:O2));
+    if(i>=s.length){clearInterval(talk);mouth.setAttribute('d',SHUT)}},40);
+}
+function shake(){kir.classList.remove('shake');void kir.offsetWidth;kir.classList.add('shake')}
+setInterval(()=>{const e=$('eyes');e.setAttribute('transform','translate(0,140.4) scale(1,0.1)');setTimeout(()=>e.removeAttribute('transform'),120)},3500);
+
+const verdicts=[n=>`${n}, асуждаю. заебали уже`,n=>`${n}? асуждаю. в реестр`,n=>`${n} — вайбкодер. асуждено`,n=>`ну ${n}, ну ёмаё. асуждаю`];
+const pokes=["не трогай меня","я занят, я асуждаю","ну чё тебе","ты тоже вайбкодер? асуждаю"];
+$('poke').onclick=()=>{shake();say(pokes[Math.floor(Math.random()*pokes.length)])};
+say("асуждаю вайбкодеров, заебали уже");
+
+const use=n=>window.claude&&window.claude.use?window.claude.use(n):Promise.resolve(null);
+let store=null,canDelete=false,readOnly=false,seen=new Set(),firstSnap=true;
+const fmt=new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+
+function render(snap){
+  const list=$('list');list.textContent="";
+  $('empty').hidden=!snap.empty;$('total').textContent=snap.size;
+  snap.docs.forEach((d,i)=>{
+    const v=d.data()||{};const li=document.createElement('li');
+    if(!firstSnap&&!seen.has(d.id))li.className='fresh';seen.add(d.id);
+    const no=document.createElement('div');no.className='no';no.textContent='дело №'+String(snap.size-i).padStart(3,'0');
+    const mid=document.createElement('div');
+    const who=document.createElement('div');who.className='who';who.textContent=v.name||'аноним';
+    const sin=document.createElement('div');sin.className='sin';sin.textContent=v.sin?('ст. '+v.sin):'ст. вайбкодинг';
+    mid.append(who,sin);
+    const right=document.createElement('div');right.className='right';
+    const when=document.createElement('span');when.className='when';when.textContent=v.at?fmt.format(new Date(v.at)):'';
+    const st=document.createElement('span');st.className='stamp';st.textContent='АСУЖДЁН';
+    right.append(when,st);
+    if(canDelete){const x=document.createElement('button');x.className='del';x.type='button';x.textContent='помиловать';
+      x.setAttribute('aria-label','Помиловать: '+(v.name||'аноним'));
+      x.onclick=async()=>{x.disabled=true;try{await store.remove(d.id);say(`ладно, ${v.name||'аноним'}, живи. пока что`)}catch(e){x.disabled=false;$('status').textContent='Не вышло помиловать, попробуй ещё раз'}};
+      right.append(x)}
+    li.append(no,mid,right);list.append(li);
+  });
+  firstSnap=false;
+}
+
+$('name').oninput=$('sin').oninput=()=>{$('err').textContent=""};
+$('form').addEventListener('submit',async ev=>{
+  ev.preventDefault();
+  const name=$('name').value.trim(),sin=$('sin').value.trim();
+  if(!name){$('err').textContent="Впиши, кто провинился";$('name').focus();return}
+  shake();say(verdicts[Math.floor(Math.random()*verdicts.length)](name));
+  if(!store||readOnly){$('err').textContent=store?"У тебя нет прав вносить в реестр, Кирилл осудил устно":"Реестр ещё открывается, Кирилл осудил устно";return}
+  $('go').disabled=true;
+  try{
+    let by=null;if(!store.local){const user=await use('user');by=user?await user.id():null}
+    await store.add({name,sin:sin||'вайбкодинг',at:Date.now(),by});
+    $('name').value="";$('sin').value="";$('name').focus();
+  }catch(e){
+    if(e&&e.code==='invalid_argument'){readOnly=true;$('err').textContent="У тебя нет прав вносить в реестр, Кирилл осудил устно"}
+    else if(e&&e.code==='quota_exceeded'){$('err').textContent="Реестр переполнен. Помилуй кого-нибудь, чтобы освободить место"}
+    else $('err').textContent="Не получилось записать в реестр, попробуй ещё раз";
+  }finally{$('go').disabled=false}
+});
+
+function localStore(){
+  const KEY='kirill-reestr';let rows=[];
+  try{rows=JSON.parse(localStorage.getItem(KEY))||[]}catch(e){}
+  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(rows))}catch(e){}};
+  const emit=()=>{const docs=rows.slice().sort((a,b)=>b.at-a.at).map(r=>({id:r.id,data:()=>r}));render({docs,size:docs.length,empty:!docs.length})};
+  return{local:true,emit,
+    add:async v=>{rows.push({...v,id:Date.now().toString(36)+Math.random().toString(36).slice(2,6)});save();emit()},
+    remove:async id=>{rows=rows.filter(r=>r.id!==id);save();emit()}};
+}
+
+(async()=>{
+  const db=await use('db');
+  if(!db){store=localStore();canDelete=true;$('status').textContent='Реестр хранится в этом браузере';store.emit();return}
+  const user=await use('user');
+  if(user){
+    canDelete=!!(await user.canEdit());
+    const w=await user.can('data.write');if(w===false)readOnly=true;
+  }
+  const col=db.collection('osuzhdennye');
+  store={add:v=>col.add(v),remove:id=>col.doc(id).delete()};
+  col.orderBy('at','desc').limit(500).onSnapshot(snap=>{
+    $('status').textContent=readOnly?'Только просмотр':'Обновляется вживую';render(snap);
+  },()=>{$('status').textContent='Реестр отвалился, обнови страницу'});
+})();
+</script>
+
+</body></html>
